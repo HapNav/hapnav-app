@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/directionsForm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/startTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="8500 Pena Blvd, Denver, CO"
+                android:textSize="16dip" />
+
+            <EditText
+                android:id="@+id/endTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/startTextView"
+                android:hint="Parker, CO"
+                android:textSize="16dip" />
+
+            <Button
+                android:id="@+id/createRouteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endTextView"
+                android:text="Create Route" />
+
+            <Button
+                android:id="@+id/showItineraryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endTextView"
+                android:layout_toRightOf="@id/createRouteButton"
+                android:text="Show Itinerary"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/showItineraryButton"
+                android:text="Clear Route"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/itineraryLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+
+        <WebView
+            android:id="@+id/itinerary"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/showlog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.76" >
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	android:versionCode="1" android:versionName="1.0" package="ioio.examples.hello">
+	<uses-sdk android:minSdkVersion="7" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<permission android:name="android.permission.BLUETOOTH"></permission>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<application android:icon="@drawable/icon" android:label="@string/app_name" android:allowBackup="true">
+		<uses-library android:name="com.android.future.usb.accessory"
+			android:required="false" />
+		<activity android:label="@string/app_name" android:name="Main"
+			android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+			</intent-filter>
+			<meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+				android:resource="@xml/accessory_filter" />
+			<meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+				android:resource="@xml/device_filter" />
+
+		</activity>
+		<service android:name="HelloIOIOService">
+			<intent-filter android:label="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"></intent-filter>
+			<meta-data android:resource="@xml/accessory_filter" android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"/>
+		</service>
+	</application>
+</manifest>
