@@ -18,22 +18,18 @@ import ioio.lib.util.android.IOIOService;
  */
 public class HelloIOIOService extends IOIOService {
 	
-	
 	private static final int PIN_left = 7;
 	private static final int PIN_right = 12;
 
 	private boolean left_Buzzer = false;
 	private boolean right_Buzzer = false;
-
 	
 	public void setTestOne(boolean b){
 		System.out.println("::HN:: Sytem set Right = " + b);
 		this.right_Buzzer = b;
-		
 	}
 	
 	public void setTest(boolean b){
-
 		System.out.println("::HN:: System set Left = " + b);
 		this.left_Buzzer = b;
 	}
@@ -59,8 +55,6 @@ public class HelloIOIOService extends IOIOService {
 			@Override
 			public void loop() throws ConnectionLostException,InterruptedException {
 				led_.write(true);
-				//left.write(test);
-				//right.write(test1);
 				
 				if (left_Buzzer) {
 					left.write(true);
@@ -71,14 +65,11 @@ public class HelloIOIOService extends IOIOService {
 					right.write(true);
 					right_Buzzer = false;
 				}
-
 				
 				Thread.sleep(1500);
-
 				led_.write(false);
 				left.write(false);
 				right.write(false);
-				
 				Thread.sleep(1500);
 			}
 			
@@ -88,21 +79,17 @@ public class HelloIOIOService extends IOIOService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-
 	}
 
-	
 	@Override
 	public void onStart(Intent intent, int startId) {
 		super.onStart(intent, startId);
-
 	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
 		return myBinder;
 	}
-	
 	
 	private final IBinder myBinder = new MyLocalBinder();
 	
@@ -111,8 +98,4 @@ public class HelloIOIOService extends IOIOService {
             return HelloIOIOService.this;
         }
 	}
-	
-	
-
-
 }

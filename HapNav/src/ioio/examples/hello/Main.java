@@ -10,11 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import ioio.examples.hello.R;
-//import ioio.examples.hello.turnService;
 import ioio.examples.hello.R.id;
 import ioio.examples.hello.R.layout;
 import ioio.examples.hello.HelloIOIOService.MyLocalBinder;
-//import ioio.examples.hello.turnService.MyLocalBinder;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -155,7 +153,6 @@ public class Main extends Activity {
 
 	//Service stuff:
 	private ServiceConnection myConnection = new ServiceConnection() {
-
 		public void onServiceConnected(ComponentName className, IBinder service) {
 			MyLocalBinder binder = (MyLocalBinder) service;
 			myService = binder.getService();
@@ -187,7 +184,6 @@ public class Main extends Activity {
 	}
 
 	private void doBindToService() {
-
 		if (!isBound) {
 			Intent bindIntent = new Intent(this, HelloIOIOService.class);
 			isBound = bindService(bindIntent, myConnection,

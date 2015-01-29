@@ -30,17 +30,17 @@ public class Router {
 	ArrayList<Map<String,String>> parsed;
 
 	public Router(String origin, String destination) throws ClientProtocolException, IOException {
-		
+		// Set up data structure and source/destination locations
 		parsed = new ArrayList<Map<String,String>>();
-		
 		origin = URLEncoder.encode(origin, "UTF-8");
 		destination = URLEncoder.encode(destination, "UTF-8");
 		
-		String url_encode = "http://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&mode=bicycling";
-		
-		URL url = new URL(url_encode);
+		// Grab the API url and prepare it for reading
+		String url_encode = "http://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&mode=bicycling";		URL url = new URL(url_encode);
 		HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
 		try {
+			// Start reading the JSON output from the API call
 			BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 			String inputLine;
 			StringBuffer response = new StringBuffer();
