@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 public class Guider {
+	
+	int sdf = 0;
 
 	static String maneuver;
 	private static Context mContext;
